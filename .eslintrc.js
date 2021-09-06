@@ -13,7 +13,7 @@ module.exports = {
     },
     rules: {
         "semi": ["error", "always"],
-        "indent": ['error', 4], // 4个空格缩进
+        "indent": ['error', 2], // 2个空格缩进
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
     }
