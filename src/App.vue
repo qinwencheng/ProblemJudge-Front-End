@@ -1,18 +1,21 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <!-- <router-view/> -->
+  <div>count:{{state.count}}</div>
+  <button @click="inc">{{state.count}}</button>
 </template>
 
-<script lang="ts">
-import test from './test';
-export default {
-    mounted: function () {
-        test.main();
-    }
-};
+<script setup lang="ts">
+import { reactive, computed } from "vue";
+type k = {
+  count: number;
+  double: number;
+}
+const state: k = reactive({
+  count: 0,
+  double: computed(() => state.count * 2)
+})
+function inc () {
+  state.count++;
+}
 </script>
 
 <style lang="less">

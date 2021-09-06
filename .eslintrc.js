@@ -12,7 +12,8 @@ module.exports = {
         ecmaVersion: 2020
     },
     rules: {
-        "semi": ["error", "always"],
+        "quotes": [0],
+        "semi": [0],
         "indent": ['error', 2], // 2个空格缩进
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
