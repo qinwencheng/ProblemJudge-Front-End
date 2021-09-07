@@ -6,3 +6,5 @@ export default {
     console.log('aaaqa');
   }
 };
+
+// export const a = 10000;
