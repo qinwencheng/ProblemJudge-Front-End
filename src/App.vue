@@ -1,22 +1,10 @@
 <template>
-<el-button> 我是 ElButton </el-button>
-<ul>
-  <li
-    v-for="(item, index) in listData"
-    :key="index"
-  >
-  {{item.problemID}}.{{item.problemContent}}
-  <br>A.{{item.problemOption[0]}}
-  <br>B.{{item.problemOption[1]}}
-  <br>C.{{item.problemOption[2]}}
-  <br>D.{{item.problemOption[3]}}
-  </li>
-</ul>
-
+<ProblemCard v-for="(item, index) in listData" :key="index" :problem="item"></ProblemCard>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
+import ProblemCard from './components/ProblemCard.vue';
 
 interface Problem {
   problemID: number,
@@ -26,13 +14,35 @@ interface Problem {
 }
 
 export default defineComponent({
+  name: "App",
+  components: {
+    ProblemCard
+  },
   setup () {
     const listData: Problem[] = reactive([
       {
         problemID: 1,
         problemType: 1,
         problemContent: '在内存储器中每个存储单元都被赋予一个唯一的序号，称为',
-        problemOption: ["地址", "序号", "下标", "编号"]
+        problemOption: ["A.地址", "B.序号", "C.下标", "D.编号"]
+      },
+      {
+        problemID: 2,
+        problemType: 2,
+        problemContent: '111111在内存储器中每个存储单元都被赋予一个唯一的序号，称为',
+        problemOption: ["A.地址", "B.序号", "C.下标", "D.编号"]
+      },
+      {
+        problemID: 2,
+        problemType: 2,
+        problemContent: '111111在内存储器中每个存储单元都被赋予一个唯一的序号，称为',
+        problemOption: ["A.地址", "B.序号", "C.下标", "D.编号"]
+      },
+      {
+        problemID: 2,
+        problemType: 2,
+        problemContent: '111111在内存储器中每个存储单元都被赋予一个唯一的序号，称为',
+        problemOption: ["A.地址", "B.序号", "C.下标", "D.编号"]
       }
     ])
     return {
