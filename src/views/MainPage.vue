@@ -1,20 +1,19 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/mainpage">About</router-link>
-  </div> -->
-<router-view />
-<!-- <el-container>
-  <el-main><ProblemCard v-for="(item, index) in listData" :key="index" :problem="item"></ProblemCard></el-main>
-<el-aside width="300px">
-  side
-</el-aside>
-</el-container> -->
-
+<el-container>
+  <el-main id="problem-main">
+    <ProblemCard v-for="(item, index) in listData" :key="index" :problem="item">
+    </ProblemCard>
+  </el-main>
+    <el-aside id="right-column">
+    <AnswerSheet></AnswerSheet>
+    </el-aside>
+</el-container>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
-import ProblemCard from './components/ProblemCard.vue';
+import ProblemCard from '../components/ProblemCard.vue';
+import AnswerSheet from '../components/AnswerSheet.vue';
 
 interface Problem {
   problemID: number,
@@ -24,9 +23,10 @@ interface Problem {
 }
 
 export default defineComponent({
-  name: "App",
+  name: "MainPage",
   components: {
-    // ProblemCard
+    ProblemCard,
+    AnswerSheet
   },
   setup () {
     const listData: Problem[] = reactive([
@@ -34,7 +34,7 @@ export default defineComponent({
         problemID: 1,
         problemType: 1,
         problemContent: '在内存储器中每个存储单元都被赋予一个唯一的序号，称为',
-        problemOption: ["A.地址dddddddddddddddddddd\ndddddddddddddddddaaaaaaaaaa\naaqqqqqqcddddddddddddddddddd\nddddddddddddddddddd\ndddddddddddddddddddd\ndddddddddddd", "B.序号", "C.下标", "D.编号"]
+        problemOption: ["A.地址", "B.序号", "C.下标", "D.编号"]
       },
       {
         problemID: 2,
@@ -62,24 +62,30 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<style lang="less" scoped>
+  .el-aside {
+    // background-color: #d3dce6;
+    color: var(--el-text-color-primary);
+    // text-align: center;
+    // line-height: 200px;
   }
+
+  .el-main {
+    // background-color: #e9eef3;
+    color: var(--el-text-color-primary);
+    padding-top: 0px;
+    // text-align: center;
+    // line-height: 160px;
+  }
+.flex-container {
+    #problem-main {
+      flex: auto;
+      margin-right: 18px;
+      width: 70%;
+    }
+    #right-column {
+      flex: auto;
+      width: 30%;
+    }
 }
 </style>
