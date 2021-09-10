@@ -2,11 +2,11 @@
 <AnswerSheet></AnswerSheet>
 <el-container>
   <el-main id="problem-main">
-    <ProblemCard v-for="(item, index) in listData" :key="index" :problem="item">
+    <ProblemCard v-for="(item, index) in listData" :key="index" :problem="item" :id="index">
     </ProblemCard>
   </el-main>
     <el-aside id="right-column">
-    <AnswerSheet></AnswerSheet>
+    <AnswerSheet :problem="listData"></AnswerSheet>
     </el-aside>
 </el-container>
 </template>

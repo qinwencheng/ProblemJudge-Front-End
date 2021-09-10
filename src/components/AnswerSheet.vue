@@ -1,5 +1,6 @@
 <template>
-<el-card >
+
+<el-card body-style="padding-top: 10px">
 
   <template #header>
     <div class="card-header">
@@ -8,20 +9,33 @@
     </div>
   </template>
 
-  <ul class="ul">
-    <li class="li" v-for="i in 1177" :key="i" >
-      <el-button class="button">{{i}}</el-button>
-    </li>
-  </ul>
+    <ul class="ul">
+      <li class="li" v-for="(item, index) in problem" :key="index">
+        <el-button class="button" @click="to('#'+index,index)">{{index}}</el-button>
+      </li>
+    </ul>
 
 </el-card>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter();
 export default defineComponent({
   name: 'AnswerSheet',
   components: {
+  },
+  props: {
+    problem: Object
+  },
+  setup () {
+    function to (url: string, id: number) {
+      alert(url)
+    }
+    return {
+      to
+    }
   }
 })
 </script>
@@ -54,7 +68,7 @@ export default defineComponent({
   /* text-align: center; */
   /* justify-content: center; */
   width: 20%;
-  padding-top: 10px;
+  padding-bottom: 8px;
   /* text-align: center; */
 }
   .card-header {
@@ -70,7 +84,6 @@ export default defineComponent({
   .item {
     margin-bottom: 18px;
   }
-
   .answer-sheet-card {
     padding: 0px;
   }

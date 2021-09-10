@@ -1,5 +1,6 @@
 <template>
-<el-card class="box-card">
+<el-card class="box-card" :id="problem.problemID">
+
   <template #header>
     <div class="card-header">
       <span class="isp">{{problem.problemID}}.{{problem.problemContent}}</span>
