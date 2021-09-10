@@ -1,4 +1,5 @@
 <template>
+<AnswerSheet></AnswerSheet>
 <el-container>
   <el-main id="problem-main">
     <ProblemCard v-for="(item, index) in listData" :key="index" :problem="item">
