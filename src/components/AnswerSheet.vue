@@ -11,7 +11,7 @@
 
     <ul class="ul">
       <li class="li" v-for="(item, index) in problem" :key="index">
-        <el-button class="button" @click="to('#'+index,index)">{{index}}</el-button>
+        <el-button class="button" @click="to('#p'+index, index)" type="primary" :plain = "item.problemStauts">{{index + 1}}</el-button>
       </li>
     </ul>
 
@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-const router = useRouter();
+
 export default defineComponent({
   name: 'AnswerSheet',
   components: {
@@ -30,8 +30,13 @@ export default defineComponent({
     problem: Object
   },
   setup () {
-    function to (url: string, id: number) {
-      alert(url)
+    const router = useRouter();
+    const to = (url: string, id: number) => {
+      console.log(url)
+      const returnEle = document.querySelector(url);
+      if (returnEle) {
+        returnEle.scrollIntoView(true); // true 是默认的
+      }
     }
     return {
       to

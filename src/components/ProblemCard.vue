@@ -1,9 +1,9 @@
 <template>
-<el-card class="box-card" :id="problem.problemID">
+<el-card class="box-card">
 
   <template #header>
     <div class="card-header">
-      <span class="isp">{{problem.problemID}}.{{problem.problemContent}}</span>
+      <span class="isp">{{num}}.{{problem.problemContent}}</span>
     </div>
   </template>
   <!-- <div>
@@ -22,7 +22,6 @@
   </el-col>
 </el-row>
 </el-radio-group>
-  <!-- <div v-for="o in 4" :key="o" class="text item">{{'列表内容 ' + o }}</div> -->
 </el-card>
 </template>
 
@@ -32,19 +31,22 @@ import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: "ProblemCard",
   props: {
-    problem: Object
+    problem: Object,
+    num: Number
     // problemID: Number,
     // problemType: Number,
     // problemContent: String,
     // problemOption: Array
   },
   components: {
-    // ElButton,
-    // ElCard
   },
   setup () {
+    const c = () => {
+      console.log(arguments)
+    }
     return {
-      radio: ref(-1)
+      radio: ref(-1),
+      c
     }
   }
 })
