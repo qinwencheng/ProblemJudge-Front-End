@@ -31,7 +31,7 @@ export default defineComponent({
   },
   setup () {
     const router = useRouter();
-    const to = (url: string, id: number) => {
+    const to = (url: string, id: string) => {
       console.log(url)
       const returnEle = document.querySelector(url);
       if (returnEle) {

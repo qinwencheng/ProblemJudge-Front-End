@@ -6,9 +6,19 @@
     </ProblemCard>
   </el-main>
     <el-aside id="right-column">
-    <AnswerSheet :problem="listData"></AnswerSheet>
+    <div class="dtk">
+      <AnswerSheet :problem="listData"></AnswerSheet>
+    </div>
     </el-aside>
 </el-container>
+<body>
+<div class="main-container">
+<div class="main-content"> //网页的主要内容
+</div>
+<div class="float-button"> //悬浮按钮
+</div>
+</div>
+</body>
 </template>
 
 <script lang="ts">
@@ -81,11 +91,24 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
+
+.float-button {
+position: fixed; //关键
+height: 90px;
+width: 40px;
+bottom: 90px;
+right: 50px;
+background: #b4d145;
+}
   .el-aside {
     // background-color: #d3dce6;
     color: var(--el-text-color-primary);
     // text-align: center;
     // line-height: 200px;
+    .dtk {
+      position: fixed;
+      right: 10px;
+    }
   }
 
   .el-main {
@@ -102,10 +125,9 @@ export default defineComponent({
       width: 70%;
     }
     #right-column {
+      // position: fixed;
       flex: auto;
       width: 30%;
-      position: fixed;
-      top: 0;
     }
 }
 </style>
